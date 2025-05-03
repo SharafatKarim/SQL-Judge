@@ -1,0 +1,73 @@
+footer {
+  width: 100%;
+  color: white;
+  background-image: url('../assets/bg_sky_darker.gif');
+  background-size: cover;
+  background-position: center;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-column {
+  flex: 1;
+  margin: 0 15px;
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.footer-column p,
+.footer-column ul {
+  font-size: 14px;
+  line-height: 1.6;
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.footer-column ul li a {
+  color: white;
+  text-align: left;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #f0a500;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  border-top: 0.5px solid rgb(255, 255, 255);
+  padding-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column h3,
+  .footer-column p {
+    text-align: center;
+  }
+
+  .footer-column ul li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+}
