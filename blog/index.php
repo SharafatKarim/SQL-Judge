@@ -47,13 +47,18 @@ $blogs = $conn->query($sql);
 
       <?php if ($blogs && $blogs->rowCount() > 0): ?>
         <?php foreach ($blogs as $blog): ?>
-          <div class="card">
-            <h2><?php echo htmlspecialchars($blog['title']); ?></h2>
+            <div class="card">
+            <h2>
+              <a href="./post.php?id=<?php echo htmlspecialchars($blog['ID']); ?>">
+              <?php echo htmlspecialchars($blog['title']); ?>
+              </a>
+            </h2>
             <h5>By <?php echo htmlspecialchars($blog['username']); ?> on
               <?php echo htmlspecialchars($blog['created_at']); ?>
             </h5>
-            <p><?php echo nl2br(htmlspecialchars($blog['content'])); ?></p>
-          </div>
+            <!-- TODO :: Add formatting, pagination and limit -->
+            <p><?php echo htmlspecialchars_decode($blog['content']); ?></p>
+            </div>
         <?php endforeach; ?>
       <?php else: ?>
         <div class="card">No blogs available at the moment.</div>

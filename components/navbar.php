@@ -51,7 +51,7 @@
         echo '<div class="nav-item">';
       }
       ?>
-        <a href="./pages/problemsets.html">Problemsets</a>
+        <a href="../problemsets/index.php">Problemsets</a>
       </div>
 
       <?php
@@ -61,7 +61,7 @@
         echo '<div class="nav-item">';
       }
       ?>
-        <a href="./pages/contests.html">Contests</a>
+        <a href="../contests/index.php">Contests</a>
       </div>
 
       <?php
@@ -71,7 +71,7 @@
         echo '<div class="nav-item">';
       }
       ?>
-        <a href="./pages/top.html">Leaderboard</a>
+        <a href="../leaderboard/index.php">Leaderboard</a>
       </div>
 
       <?php

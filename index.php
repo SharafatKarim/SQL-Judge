@@ -1,6 +1,14 @@
 <?php
 session_start();
 $_SESSION["page"] = "home";
+
+// Database connection
+require './lib/db.php';
+
+// Fetch blogs
+$author_id = isset($_SESSION['id']) ? intval($_SESSION['id']) : 0;
+$sql = "SELECT blogs.ID, blogs.title, blogs.content, blogs.created_at, users.username FROM blogs JOIN users ON blogs.author_id = users.ID WHERE blogs.is_published = 1 OR blogs.author_id = $author_id ORDER BY blogs.created_at DESC LIMIT 5";
+$blogs = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +20,7 @@ $_SESSION["page"] = "home";
   <title>SQL Judge | Home</title>
   <link rel="stylesheet" href="styles/body.css">
   <link rel="stylesheet" href="styles/grid.css">
+  <link rel="stylesheet" href="styles/blog.css">
 </head>
 
 <body>
@@ -23,6 +32,8 @@ $_SESSION["page"] = "home";
     <div class="leftcolumn">
       <div class="card">
         <h2>NEWS & EVENTS</h2>
+        <hr>
+
         <h3>April update</h3>
         <h5>Major changes, Sun 06, April 2025</h5>
         <ul>
@@ -37,14 +48,31 @@ $_SESSION["page"] = "home";
           <li>Several pages implemented with basic HTML and CSS.</li>
         </ul>
       </div>
+
       <div class="card">
-        <h2>TITLE HEADING</h2>
-        <h5>Title description, Sun 6, 2025</h5>
-        <div class="fakeimg" style="height:200px;">Image</div>
-        <p>Some text..</p>
-        <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco.</p>
+        <h2>BLOGS & THOUGHTS</h2>
+        <hr>
+
+        <?php if ($blogs && $blogs->rowCount() > 0): ?>
+          <?php foreach ($blogs as $blog): ?>
+            <h2>
+              <a href="./blog/post.php?id=<?php echo htmlspecialchars($blog['ID']); ?>">
+                <?php echo htmlspecialchars($blog['title']); ?>
+              </a>
+            </h2>
+            <h5>By <?php echo htmlspecialchars($blog['username']); ?> on
+              <?php echo htmlspecialchars($blog['created_at']); ?>
+            </h5>
+            <!-- TODO :: Add formatting, pagination and limit -->
+            <p><?php echo htmlspecialchars_decode($blog['content']); ?></p>
+            <hr>
+          <?php endforeach; ?>
+          <button class="horizontal-button">Load more...</button>
+
+        <?php else: ?>
+          No blogs available at the moment.
+        <?php endif; ?>
+
       </div>
     </div>
 

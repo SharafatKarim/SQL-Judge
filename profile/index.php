@@ -65,7 +65,7 @@ $_SESSION["page"] = "profile";
           </tr>
           <tr>
             <td>Bio</td>
-            <td><?php echo htmlspecialchars($bio); ?></td>
+            <td><?php echo $bio; ?></td>
           </tr>
           <tr>
             <td>Gender</td>
