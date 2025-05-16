@@ -1,6 +1,5 @@
 <div class="card">
   <h2>Personalization</h2>
-  <div class="fakeimg" style="height:100px;">Image</div>
   <p>Welcome home, chief! Here's some quick links for you.</p>
   <ul>
     <li>My profile</li>

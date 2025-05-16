@@ -34,6 +34,12 @@ $blogs = $conn->query($sql);
         <h2>NEWS & EVENTS</h2>
         <hr>
 
+        <h3>May update</h3>
+        <h5>Major changes, Tue 13, May 2025</h5>
+        <ul>
+          <li>Blogs & Thoughts section added.</li>
+          <li>Leaderboard implemented.</li>
+        </ul>
         <h3>April update</h3>
         <h5>Major changes, Sun 06, April 2025</h5>
         <ul>

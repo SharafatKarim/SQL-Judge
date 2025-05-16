@@ -3,7 +3,10 @@ session_start();
 $_SESSION["page"] = "profile";
 ?>
 
-<?php require "get_profile.php"; ?>
+<?php 
+require "get_profile.php"; 
+$page_username = $username;
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +22,7 @@ $_SESSION["page"] = "profile";
 
 <body>
   <?php require '../components/header.php'; ?>
+
   <?php require '../components/navbar.php'; ?>
 
   <div class="row">
@@ -29,7 +33,7 @@ $_SESSION["page"] = "profile";
         <table>
           <tr>
             <td>Username</td>
-            <td><b><?php echo htmlspecialchars($username); ?></b></td>
+            <td><b><?php echo htmlspecialchars($page_username); ?></b></td>
           </tr>
           <tr>
             <td>First Name</td>
