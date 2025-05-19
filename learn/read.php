@@ -46,6 +46,15 @@ if (!$current_lesson_exists) {
   <link rel="stylesheet" href="../styles/reader.css">
 </head>
 
+<script>
+  window.onload = function () {
+    var focusElem = document.getElementById('focus');
+    if (focusElem) {
+      focusElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+</script>
+
 <body>
   <?php require '../components/header.php'; ?>
   <?php require '../components/navbar.php'; ?>
@@ -66,7 +75,8 @@ if (!$current_lesson_exists) {
       </div>
 
       <div class="card">
-        <img src="<?php echo $current_lesson_dir ?>" alt="Chapter <?php echo $chapter ?>, Lesson <?php echo $lesson ?>">
+        <img src="<?php echo $current_lesson_dir ?>" id="focus"
+          alt="Chapter <?php echo $chapter ?>, Lesson <?php echo $lesson ?>">
       </div>
 
       <div class="card">
