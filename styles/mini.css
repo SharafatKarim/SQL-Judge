@@ -4,6 +4,11 @@
   justify-content: flex-start;
 }
 
+.row2-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
 .green-button {
   text-decoration: none;
   padding: 10px 20px;
@@ -19,6 +24,15 @@
 .green-button:hover {
   background-color: #111;
   color: #4caf50;
+}
+
+.green-button:disabled,
+.green-button[disabled] {
+  background-color: #888;
+  color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+  pointer-events: none;
 }
 
 .full-w {

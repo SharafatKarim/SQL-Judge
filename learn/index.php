@@ -33,7 +33,6 @@ $_SESSION["page"] = "learn";
             <tr>
               <th>Chapter</th>
               <th>Download Formats</th>
-              <th>Last Updated</th>
             </tr>
           </thead>
           <tbody>
@@ -46,7 +45,6 @@ $_SESSION["page"] = "learn";
                 <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch1.pptx">pptx</a>,
                 <a href="https://www.db-book.com/slides-dir/PDF-dir/ch1.pdf">pdf</a>
               </td>
-              <td>Jan 7, 2019</td>
             </tr>
             <tr>
               <td colspan="3"><strong>Part 1: Relational Languages</strong></td>
@@ -57,7 +55,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch2.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch2.pdf">pdf</a>
               </td>
-              <td>Sep 8, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=3&lesson=1">3. Introduction to SQL</a></td>
@@ -65,7 +62,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch3.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch3.pdf">pdf</a>
               </td>
-              <td>Jan 20, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=4&lesson=1">4. Intermediate SQL</a></td>
@@ -73,7 +69,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch4.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch4.pdf">pdf</a>
               </td>
-              <td>Feb 2, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=5&lesson=1">5. Advanced SQL</a></td>
@@ -81,7 +76,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch5.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch5.pdf">pdf</a>
               </td>
-              <td>Feb 2, 2019</td>
             </tr>
             <tr>
               <td colspan="3"><strong>Part 2: Database Design</strong></td>
@@ -92,7 +86,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch6.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch6.pdf">pdf</a>
               </td>
-              <td>Feb 13, 2020</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=7&lesson=1">7. Relational Database Design</a></td>
@@ -100,7 +93,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch7.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch7.pdf">pdf</a>
               </td>
-              <td>Jan 24, 2019</td>
             </tr>
             <tr>
               <td colspan="3"><strong>Part 3: Application Design and Development</strong></td>
@@ -111,7 +103,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch8.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch8.pdf">pdf</a>
               </td>
-              <td>Jun 24, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=9&lesson=1">9. Application Development</a></td>
@@ -119,7 +110,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch9.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch9.pdf">pdf</a>
               </td>
-              <td>Jan 24, 2019</td>
             </tr>
             <tr>
               <td colspan="3"><strong>Part 4: Big Data Analytics</strong></td>
@@ -130,7 +120,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch10.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch10.pdf">pdf</a>
               </td>
-              <td>Mar 8, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=11&lesson=1">11. Data Analysis</a></td>
@@ -138,7 +127,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch11.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch11.pdf">pdf</a>
               </td>
-              <td>Jul 27, 2019</td>
             </tr>
             <tr>
               <td colspan="3"><strong>Part 4: Storage Management</strong></td>
@@ -149,7 +137,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch12.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch12.pdf">pdf</a>
               </td>
-              <td>Jan 20, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=13&lesson=1">13. Data Storage Structures</a></td>
@@ -157,7 +144,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch13.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch13.pdf">pdf</a>
               </td>
-              <td>Jan 20, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=14&lesson=1">14. Indexing</a></td>
@@ -165,7 +151,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch14.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch14.pdf">pdf</a>
               </td>
-              <td>Jan 20, 2019</td>
             </tr>
             <tr>
               <td colspan="3"><strong>Part 5: Querying</strong></td>
@@ -176,7 +161,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch15.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch15.pdf">pdf</a>
               </td>
-              <td>Feb 5, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=16&lesson=1">16. Query Optimization</a></td>
@@ -184,7 +168,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch16.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch16.pdf">pdf</a>
               </td>
-              <td>Mar 8, 2019</td>
             </tr>
             <tr>
               <td colspan="3"><strong>Part 6: Transaction Management</strong></td>
@@ -195,7 +178,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch17.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch17.pdf">pdf</a>
               </td>
-              <td>Mar 8, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=18&lesson=1">18. Concurrency Control</a></td>
@@ -203,7 +185,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch18.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch18.pdf">pdf</a>
               </td>
-              <td>Mar 8, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=19&lesson=1">19. Recovery System</a></td>
@@ -211,7 +192,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch19.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch19.pdf">pdf</a>
               </td>
-              <td>Mar 8, 2019</td>
             </tr>
             <tr>
               <td colspan="3"><strong>Part 7: Parallel and Distributed Databases</strong></td>
@@ -222,7 +202,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch20.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch20.pdf">pdf</a>
               </td>
-              <td>Mar 8, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=21&lesson=1">21. Parallel and Distributed Storage</a></td>
@@ -230,7 +209,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch21.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch21.pdf">pdf</a>
               </td>
-              <td>Mar 13, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=22&lesson=1">22. Parallel and Distributed Query Processing</a></td>
@@ -238,7 +216,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch22.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch22.pdf">pdf</a>
               </td>
-              <td>Mar 18, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=23&lesson=1">23. Parallel and Distributed Transaction Processing</a></td>
@@ -246,7 +223,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch23.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch23.pdf">pdf</a>
               </td>
-              <td>Jan 4, 2020</td>
             </tr>
             <tr>
               <td colspan="3"><strong>Part 8: Advanced Topics</strong></td>
@@ -257,7 +233,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch24.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch24.pdf">pdf</a>
               </td>
-              <td>Jan 20, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=25&lesson=1">25. Advanced Application Development</a></td>
@@ -265,7 +240,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch25.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch25.pdf">pdf</a>
               </td>
-              <td>Feb 10, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=26&lesson=1">26. Blockchain Databases</a></td>
@@ -273,7 +247,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch26.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch26.pdf">pdf</a>
               </td>
-              <td>Aug 8, 2019</td>
             </tr>
             <tr>
               <td colspan="3"><strong>Part 10: Online Chapters</strong></td>
@@ -284,7 +257,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch27.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch27.pdf">pdf</a>
               </td>
-              <td>Feb 10, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=28&lesson=1">28. Advanced Relational Database Design</a></td>
@@ -292,7 +264,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch28.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch28.pdf">pdf</a>
               </td>
-              <td>Feb 10, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=29&lesson=1">29. Object-Based Databases</a></td>
@@ -300,7 +271,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch29.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch29.pdf">pdf</a>
               </td>
-              <td>Mar 22, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=30&lesson=1">30. XML</a></td>
@@ -308,7 +278,6 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch30.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch30.pdf">pdf</a>
               </td>
-              <td>Mar 22, 2019</td>
             </tr>
             <tr>
               <td><a href="./read.php?chapter=31&lesson=1">31. Information Retrieval</a></td>
@@ -316,12 +285,10 @@ $_SESSION["page"] = "learn";
               <a href="https://www.db-book.com/slides-dir/PPTX-dir/ch31.pptx">pptx</a>,
               <a href="https://www.db-book.com/slides-dir/PDF-dir/ch31.pdf">pdf</a>
               </td>
-              <td>Mar 22, 2019</td>
             </tr>
             <tr>
               <td>32. PostgreSQL</td>
-              <td>..</td>
-              <td>Not yet</td>
+              <td>... (not available)</td>
             </tr>
           </tbody>
         </table>

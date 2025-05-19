@@ -1,0 +1,11 @@
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.lesson-input {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

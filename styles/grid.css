@@ -28,6 +28,12 @@
   background-color: white;
   padding: 20px;
   margin-top: 20px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
 }
 
 /* Footer */
