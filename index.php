@@ -73,7 +73,9 @@ $blogs = $conn->query($sql);
             <p><?php echo htmlspecialchars_decode($blog['content']); ?></p>
             <hr>
           <?php endforeach; ?>
-          <button class="horizontal-button">Load more...</button>
+          <a href="./blog/index.php">
+            <button class="horizontal-button">Load more...</button>
+          </a>
 
         <?php else: ?>
           No blogs available at the moment.

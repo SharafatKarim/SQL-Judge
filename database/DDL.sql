@@ -36,6 +36,7 @@ CREATE TABLE users (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+DROP TABLE IF EXISTS feedback;
 CREATE TABLE feedback (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
@@ -46,18 +47,7 @@ CREATE TABLE feedback (
     FOREIGN KEY (user_id) REFERENCES users(ID)
 );
 
-CREATE TABLE contests (
-    ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(100) NOT NULL,
-    description TEXT,
-    start_time DATETIME NOT NULL,
-    end_time DATETIME NOT NULL,
-    is_public BOOLEAN DEFAULT TRUE,
-    created_by INT NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (created_by) REFERENCES users(ID)
-);
-
+DROP TABLE IF EXISTS blogs;
 CREATE TABLE blogs (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     author_id INT NOT NULL,
@@ -69,6 +59,7 @@ CREATE TABLE blogs (
     FOREIGN KEY (author_id) REFERENCES users(ID)
 );
 
+DROP TABLE IF EXISTS blog_comments;
 CREATE TABLE blog_comments (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     blog_id INT NOT NULL,
@@ -79,6 +70,7 @@ CREATE TABLE blog_comments (
     FOREIGN KEY (user_id) REFERENCES users(ID)
 );
 
+DROP TABLE IF EXISTS blog_reactions;
 CREATE TABLE blog_reactions (
     blog_id INT,
     user_id INT,
@@ -99,6 +91,18 @@ CREATE TABLE problems (
     memory_limit INT DEFAULT 256, -- in MB
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (contest_id) REFERENCES contests(ID)
+);
+
+CREATE TABLE contests (
+    ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(100) NOT NULL,
+    description TEXT,
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
+    is_public BOOLEAN DEFAULT TRUE,
+    created_by INT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (created_by) REFERENCES users(ID)
 );
 
 CREATE TABLE submissions (
