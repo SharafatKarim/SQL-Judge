@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="../styles/mini.css">
+
 <div class="card">
   <h2>Personalization</h2>
   <p>Welcome home, chief! Here's some quick links for you.</p>
@@ -11,8 +13,15 @@
 </div>
 <div class="card">
   <h3>Search users</h3>
-  <input id="searching_ID" type="text" placeholder="Search..">
-  <button type="button" onclick="window.location.href='../profile/index.php?username=' + document.getElementById('searching_ID').value;">Search</button>
+  <div class="row2">
+    <div>
+      <input class="row2-text-input" id="searching_ID" type="text" placeholder="Search..">
+    </div>
+    <div>
+      <button type="button" class="row2-button"
+      onclick="window.location.href='../profile/index.php?username=' + document.getElementById('searching_ID').value;">Search</button>
+    </div>
+  </div>
 </div>
 <div class="card">
   <h3>Notifications</h3>

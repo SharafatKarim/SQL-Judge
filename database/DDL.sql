@@ -18,7 +18,7 @@ CREATE TABLE users (
     reset_token_expiry DATETIME,
     profile_picture VARCHAR(255),
     bio TEXT,
-    gendar VARCHAR(10),
+    gender VARCHAR(10),
     date_of_birth DATE,
     phone_number VARCHAR(20),
     address VARCHAR(255),

@@ -38,3 +38,39 @@
 .full-w {
   width: 100%;
 }
+
+.row2-form {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.row2-form input[type="email"],
+.row2-text-input {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.row2-form button[type="submit"],
+.row2-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.row2-button {
+  margin: 0 2px;
+}
+
+.row2-form button[type="submit"]:hover {
+  background-color: #388e3c;
+}

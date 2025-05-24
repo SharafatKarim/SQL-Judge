@@ -73,7 +73,7 @@ $page_username = $username;
           </tr>
           <tr>
             <td>Gender</td>
-            <td><?php echo htmlspecialchars($gendar); ?></td>
+            <td><?php echo htmlspecialchars($gender); ?></td>
           </tr>
           <tr>
             <td>Date of Birth</td>

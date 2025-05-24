@@ -22,6 +22,7 @@ $blogs = $conn->query($sql);
   <link rel="stylesheet" href="styles/body.css">
   <link rel="stylesheet" href="styles/grid.css">
   <link rel="stylesheet" href="styles/blog.css">
+  <link rel="stylesheet" href="styles/mini.css">
 </head>
 
 <body>
@@ -98,13 +99,20 @@ $blogs = $conn->query($sql);
       <div class="card">
         <h2>NEWSLETTER</h2>
         <hr>
-        <h2>Become a Better SQL Enthusiast!</h2>
-        <p>
-          With the SQL Judge periodic Newsletter, 
-          you'll get practical SQL tips, discover new challenges, 
-          explore database concepts, and stay updated with the latest features and events 
-          from the SQL Judge community.
-        </p>
+        <div class="row2">
+          <div>
+            <h2>Become a Better SQL Enthusiast!</h2>
+            <p>
+              With the SQL Judge periodic Newsletter, 
+              you'll get practical SQL tips, discover new challenges, 
+              explore database concepts, and stay updated with the latest features and events 
+              from the SQL Judge community.
+            </p>
+          </div>
+          <div>
+            <img src="./assets/logo.svg" alt="SQL-Judge" width="150px">
+          </div>
+        </div>
         <?php
         $newsletter_msg = '';
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newsletter_email'])) {
@@ -128,7 +136,7 @@ $blogs = $conn->query($sql);
           }
         }
         ?>
-        <form method="post" action="">
+        <form class="row2-form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
           <input type="email" name="newsletter_email" placeholder="Your email address" required>
           <button type="submit">Subscribe</button>
         </form>

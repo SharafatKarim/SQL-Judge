@@ -13,7 +13,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 
 <body>
   <div class="header">
-    <h1><a class="header-text" href="../">SQL Judge</a></h1>
+    <h1><a class="header-text" href="../"><img src="../assets/logo.svg" height="36px" alt="SQL Judge">SQL Judge</a></h1>
     <div class="nav-link">
 
     <?php 

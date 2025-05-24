@@ -44,7 +44,7 @@ if ($stmt = $conn->prepare($sql)) {
     $is_verified = $row["is_verified"] ?? "";
     $profile_picture = $row["profile_picture"] ?? "";
     $bio = $row["bio"] ?? "";
-    $gendar = $row["gendar"] ?? "";
+    $gender = $row["gender"] ?? "";
     $date_of_birth = $row["date_of_birth"] ?? "";
     $phone_number = $row["phone_number"] ?? "";
     $website = $row["website"] ?? "";
@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             address = :address,
             institution = :institution,
             bio = :bio,
-            gendar = :gender,
+            gender = :gender,
             date_of_birth = :date_of_birth,
             phone_number = :phone_number,
             website = :website,
@@ -229,9 +229,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <td>Gender</td>
               <td>
                 <select name="gender">
-                  <option value="Male" <?php echo $gendar === 'Male' ? 'selected' : ''; ?>>Male</option>
-                  <option value="Female" <?php echo $gendar === 'Female' ? 'selected' : ''; ?>>Female</option>
-                  <option value="Other" <?php echo $gendar === 'Other' ? 'selected' : ''; ?>>Other</option>
+                  <option value="Male" <?php echo $gender === 'Male' ? 'selected' : ''; ?>>Male</option>
+                  <option value="Female" <?php echo $gender === 'Female' ? 'selected' : ''; ?>>Female</option>
+                  <option value="Other" <?php echo $gender === 'Other' ? 'selected' : ''; ?>>Other</option>
                 </select>
               </td>
             </tr>
