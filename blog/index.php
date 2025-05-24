@@ -4,6 +4,7 @@ $_SESSION["page"] = "blog";
 
 // Database connection
 require '../lib/db.php';
+require '../lib/security.php';
 
 // Fetch blogs
 $author_id = isset($_SESSION['id']) ? intval($_SESSION['id']) : 0;
@@ -49,15 +50,26 @@ $blogs = $conn->query($sql);
         <?php foreach ($blogs as $blog): ?>
             <div class="card">
             <h2>
-              <a href="./post.php?id=<?php echo htmlspecialchars($blog['ID']); ?>">
-              <?php echo htmlspecialchars($blog['title']); ?>
+              <a href="./post.php?id=<?php echo decode_data_with_formatting($blog['ID']); ?>">
+              <?php echo decode_data_with_formatting($blog['title']); ?>
               </a>
             </h2>
-            <h5>By <?php echo htmlspecialchars($blog['username']); ?> on
-              <?php echo htmlspecialchars($blog['created_at']); ?>
+            <h5>By <?php echo decode_data_with_formatting($blog['username']); ?> on
+              <?php echo decode_data_with_formatting($blog['created_at']); ?>
             </h5>
             <!-- TODO :: Add formatting, pagination and limit -->
-            <p><?php echo htmlspecialchars_decode($blog['content']); ?></p>
+            <p>
+              <?php
+              $content = decode_data_with_formatting($blog['content']);
+              $max_length = 300;
+              if (mb_strlen($content) > $max_length) {
+                echo mb_substr($content, 0, $max_length) . '...';
+                echo ' <a href="./post.php?id=' . decode_data_with_formatting($blog['ID']) . '">Read more</a>';
+              } else {
+                echo $content;
+              }
+              ?>
+            </p>
             </div>
         <?php endforeach; ?>
       <?php else: ?>

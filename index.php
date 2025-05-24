@@ -4,6 +4,7 @@ $_SESSION["page"] = "home";
 
 // Database connection
 require './lib/db.php';
+require './lib/security.php';
 
 // Fetch blogs
 $author_id = isset($_SESSION['id']) ? intval($_SESSION['id']) : 0;
@@ -62,15 +63,26 @@ $blogs = $conn->query($sql);
         <?php if ($blogs && $blogs->rowCount() > 0): ?>
           <?php foreach ($blogs as $blog): ?>
             <h2>
-              <a href="./blog/post.php?id=<?php echo htmlspecialchars($blog['ID']); ?>">
-                <?php echo htmlspecialchars($blog['title']); ?>
+              <a href="./blog/post.php?id=<?php echo decode_data_with_formatting($blog['ID']); ?>">
+                <?php echo decode_data_with_formatting($blog['title']); ?>
               </a>
             </h2>
-            <h5>By <?php echo htmlspecialchars($blog['username']); ?> on
-              <?php echo htmlspecialchars($blog['created_at']); ?>
+            <h5>By <?php echo decode_data_with_formatting($blog['username']); ?> on
+              <?php echo decode_data_with_formatting($blog['created_at']); ?>
             </h5>
-            <!-- TODO :: Add formatting, pagination and limit -->
-            <p><?php echo htmlspecialchars_decode($blog['content']); ?></p>
+            <!-- TODO :: Add pagination and limit -->
+            <p>
+              <?php
+              $content = decode_data_with_formatting($blog['content']);
+              $max_length = 300;
+              if (mb_strlen($content) > $max_length) {
+                echo mb_substr($content, 0, $max_length) . '...';
+                echo ' <a href="./post.php?id=' . decode_data_with_formatting($blog['ID']) . '">Read more</a>';
+              } else {
+                echo $content;
+              }
+              ?>
+            </p>
             <hr>
           <?php endforeach; ?>
           <a href="./blog/index.php">
@@ -81,6 +93,46 @@ $blogs = $conn->query($sql);
           No blogs available at the moment.
         <?php endif; ?>
 
+      </div>
+
+      <div class="card">
+        <h2>NEWSLETTER</h2>
+        <hr>
+        <h2>Become a Better SQL Enthusiast!</h2>
+        <p>
+          With the SQL Judge periodic Newsletter, 
+          you'll get practical SQL tips, discover new challenges, 
+          explore database concepts, and stay updated with the latest features and events 
+          from the SQL Judge community.
+        </p>
+        <?php
+        $newsletter_msg = '';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['newsletter_email'])) {
+          $email = trim($_POST['newsletter_email']);
+          if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            try {
+              $stmt = $conn->prepare("INSERT INTO newsletters (email) VALUES (:email)");
+              $stmt->bindParam(':email', $email);
+              $stmt->execute();
+              $newsletter_msg = '<span style="color:green;">Subscribed successfully!</span>';
+            } catch (PDOException $e) {
+              if ($e->getCode() == 23000) {
+                $newsletter_msg = '<span style="color:orange;">You are already subscribed.</span>';
+              } else {
+                $newsletter_msg = '<span style="color:red;">Subscription failed, 
+                try again later.</span>';
+              }
+            }
+          } else {
+            $newsletter_msg = '<span style="color:red;">Please enter a valid email address.</span>';
+          }
+        }
+        ?>
+        <form method="post" action="">
+          <input type="email" name="newsletter_email" placeholder="Your email address" required>
+          <button type="submit">Subscribe</button>
+        </form>
+        <?php if (!empty($newsletter_msg)) echo $newsletter_msg; ?>
       </div>
     </div>
 

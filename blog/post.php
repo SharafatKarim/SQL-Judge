@@ -4,6 +4,7 @@ $_SESSION["page"] = "blog";
 
 // Database connection
 require '../lib/db.php';
+require '../lib/security.php';
 
 // Fetch blog post
 $post_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -74,6 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reaction'])) {
   <link rel="stylesheet" href="../styles/grid.css">
   <link rel="stylesheet" href="../styles/mini.css">
   <link rel="stylesheet" href="../styles/blog.css">
+  <link rel="stylesheet" href="../styles/code_block.css">
 </head>
 
 <body>
@@ -85,12 +87,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reaction'])) {
     <div class="leftcolumn">
       <?php if ($blog): ?>
         <div class="card">
-          <h2><?php echo htmlspecialchars($blog['title']); ?></h2>
-          <h5>By <?php echo htmlspecialchars($blog['username']); ?> on
-            <?php echo htmlspecialchars($blog['created_at']); ?></h5>
+          <h2><?php echo decode_data_with_formatting($blog['title']); ?></h2>
+          <h5>By <?php echo decode_data_with_formatting($blog['username']); ?> on
+            <?php echo decode_data_with_formatting($blog['created_at']); ?></h5>
           <hr>
         </div>
-        <?php $content = nl2br(htmlspecialchars_decode($blog['content'])); ?>
+        <?php $content = decode_data_with_formatting($blog['content']); ?>
         <div class="card">
           <?php echo $content; ?>
         </div>
@@ -110,9 +112,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reaction'])) {
           <?php if (!empty($comments)): ?>
             <?php foreach ($comments as $comment): ?>
               <div class="comment">
-                <strong><?php echo htmlspecialchars($comment['username']); ?>:</strong>
-                <p><?php echo htmlspecialchars($comment['comment']); ?></p>
-                <small><?php echo htmlspecialchars($comment['created_at']); ?></small>
+                <strong><?php echo decode_data_with_formatting($comment['username']); ?>:</strong>
+                <p><?php echo decode_data_with_formatting($comment['comment']); ?></p>
+                <small><?php echo decode_data_with_formatting($comment['created_at']); ?></small>
               </div>
               <hr>
             <?php endforeach; ?>
