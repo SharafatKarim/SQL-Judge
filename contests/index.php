@@ -26,6 +26,10 @@ $_SESSION["page"] = "contests";
         <h2>No contests running!</h2>
         <p>Please check back tomorrow...</p>
       </div>
+
+      <div class="card">
+        <?php include '../components/newsletter.php' ?>
+      </div>
     </div>
 
     <!-- right column -->
