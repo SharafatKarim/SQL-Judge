@@ -15,10 +15,10 @@
     <div class="footer-column">
       <h3>About Us</h3>
       <ul>
-        <li><a href="#">Background</a></li>
-        <li><a href="#">F.A.Q.</a></li>
+        <li><a href="../pages/background.php">Background</a></li>
+        <li><a href="../pages/FAQ.php">F.A.Q.</a></li>
         <li><a href="../pages/privacy_policy.php">Privacy Policy</a></li>
-        <li><a href="#">Open Source</a></li>
+        <li><a href="https://github.com/SharafatKarim/SQL-Judge">Open Source</a></li>
         <li><a href="../pages/feedback.php">Feedback</a></li>
       </ul>
     </div>
@@ -28,7 +28,7 @@
         Knowledge should be free and open source!
       </p>
       <p>Email: sharafat@duck.com
-        <br>GitHub: <a href="https://github.com/SharafatKarim/">@SharafatKarim</a> 
+        <br>GitHub: <a href="https://github.com/SharafatKarim/">@SharafatKarim</a>
       </p>
     </div>
   </div>

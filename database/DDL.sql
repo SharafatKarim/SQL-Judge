@@ -39,6 +39,7 @@ CREATE TABLE users (
 DROP TABLE IF EXISTS feedback;
 CREATE TABLE feedback (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
     name VARCHAR(50) NOT NULL,
     email VARCHAR(100),
     feedback TEXT NOT NULL,
@@ -88,6 +89,27 @@ CREATE TABLE newsletters (
     subscribed_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE contests (
+    ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(100) NOT NULL,
+    description TEXT,
+    start_time DATETIME NOT NULL,
+    end_time DATETIME NOT NULL,
+    is_public BOOLEAN DEFAULT TRUE,
+    created_by INT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (created_by) REFERENCES users(ID)
+);
+
+CREATE TABLE contest_registrations (
+    user_id INT NOT NULL,
+    contest_id INT NOT NULL,
+    registered_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_id, contest_id),
+    FOREIGN KEY (user_id) REFERENCES users(ID),
+    FOREIGN KEY (contest_id) REFERENCES contests(ID)
+);
+
 CREATE TABLE problems (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     contest_id INT,
@@ -100,16 +122,13 @@ CREATE TABLE problems (
     FOREIGN KEY (contest_id) REFERENCES contests(ID)
 );
 
-CREATE TABLE contests (
+CREATE TABLE test_cases (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(100) NOT NULL,
-    description TEXT,
-    start_time DATETIME NOT NULL,
-    end_time DATETIME NOT NULL,
-    is_public BOOLEAN DEFAULT TRUE,
-    created_by INT NOT NULL,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (created_by) REFERENCES users(ID)
+    problem_id INT NOT NULL,
+    input TEXT,
+    expected_output TEXT NOT NULL,
+    is_hidden BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (problem_id) REFERENCES problems(ID)
 );
 
 CREATE TABLE submissions (
@@ -124,24 +143,6 @@ CREATE TABLE submissions (
     submitted_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(ID),
     FOREIGN KEY (problem_id) REFERENCES problems(ID)
-);
-
-CREATE TABLE test_cases (
-    ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    problem_id INT NOT NULL,
-    input TEXT,
-    expected_output TEXT NOT NULL,
-    is_hidden BOOLEAN DEFAULT FALSE,
-    FOREIGN KEY (problem_id) REFERENCES problems(ID)
-);
-
-CREATE TABLE contest_registrations (
-    user_id INT NOT NULL,
-    contest_id INT NOT NULL,
-    registered_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (user_id, contest_id),
-    FOREIGN KEY (user_id) REFERENCES users(ID),
-    FOREIGN KEY (contest_id) REFERENCES contests(ID)
 );
 
 CREATE TABLE user_scores (
