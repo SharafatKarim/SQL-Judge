@@ -9,7 +9,8 @@ require "../lib/db.php";
 // Fetch users ordered by total_solved
 $sql_total_solved = "SELECT first_name, last_name, username, total_solved
           FROM users
-          ORDER BY total_solved DESC";
+          ORDER BY total_solved DESC
+          LIMIT 50";
 if (
   $stmt = $conn->prepare($sql_total_solved)
 ) {
@@ -25,7 +26,8 @@ if (
 // Fetch users ordered by total_submissions
 $sql_total_submissions = "SELECT first_name, last_name, username, total_submissions
                     FROM users
-                    ORDER BY total_submissions DESC";
+                    ORDER BY total_submissions DESC
+                    LIMIT 50";
 if (
   $stmt2 = $conn->prepare($sql_total_submissions)
 ) {
@@ -40,7 +42,8 @@ if (
 
 $sql_total_contributions = "SELECT first_name, last_name, username, total_contributions
                FROM users
-               ORDER BY total_contributions DESC";
+               ORDER BY total_contributions DESC
+               LIMIT 50";
 if ($stmt3 = $conn->prepare($sql_total_contributions)) {
   if ($stmt3->execute()) {
     $total_contributions = $stmt3->fetchAll(PDO::FETCH_ASSOC);
