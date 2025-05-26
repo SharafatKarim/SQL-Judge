@@ -11,10 +11,12 @@
 
 .green-button {
   text-decoration: none;
+  display: inline-block;
   padding: 10px 20px;
   cursor: grab;
   margin: 0 2px;
   border-radius: 5px;
+  text-align: center;
   background-color: #333;
   color: white;
   transition: background-color 0.3s ease;
@@ -37,6 +39,22 @@
 
 .full-w {
   width: 100%;
+}
+
+@media (max-width: 600px) {
+  .row2,
+  .row2-space-between,
+  .row2-form {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px;
+  }
+  .row2-button,
+  .green-button,
+  .row2-form button[type="submit"] {
+    width: 100%;
+    margin: 0;
+  }
 }
 
 .row2-form {

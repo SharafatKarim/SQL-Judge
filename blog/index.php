@@ -8,7 +8,7 @@ require '../lib/security.php';
 
 // Fetch blogs
 $author_id = isset($_SESSION['id']) ? intval($_SESSION['id']) : 0;
-$sql = "SELECT blogs.ID, blogs.title, blogs.content, blogs.created_at, users.username FROM blogs JOIN users ON blogs.author_id = users.ID WHERE blogs.is_published = 1 OR blogs.author_id = $author_id ORDER BY blogs.created_at DESC";
+$sql = "SELECT blogs.ID, blogs.title, blogs.content, blogs.created_at, users.username, blogs.is_published FROM blogs JOIN users ON blogs.author_id = users.ID WHERE blogs.is_published = 1 OR blogs.author_id = $author_id ORDER BY blogs.created_at DESC";
 $blogs = $conn->query($sql);
 ?>
 
@@ -56,6 +56,9 @@ $blogs = $conn->query($sql);
             </h2>
             <h5>By <?php echo decode_data_with_formatting($blog['username']); ?> on
               <?php echo decode_data_with_formatting($blog['created_at']); ?>
+              <?php if (!$blog['is_published']): ?>
+                <span style="color: orange;">[DRAFT]</span>
+              <?php endif; ?>
             </h5>
             <!-- TODO :: Add formatting, pagination and limit -->
             <p>

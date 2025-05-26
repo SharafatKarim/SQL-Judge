@@ -1,13 +1,8 @@
 <?php
 session_start();
 $_SESSION["page"] = "blog";
-?>
-
-<?php
 require "../lib/db.php";
 require "../lib/security.php";
-
-session_start();
 
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
   header("location: ../auth/login.php");
@@ -42,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $param_author_id = $_SESSION["id"];
       $param_title = $title;
       $param_content = $content;
-      $param_is_published = isset($_POST["save-draft"]) ? false : true;
+      $param_is_published = isset($_POST["save-draft"]) && $_POST["save-draft"] == '1' ? false : true;
 
       // Execute the statement
       if ($stmt->execute()) {

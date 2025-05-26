@@ -8,7 +8,7 @@ require '../lib/security.php';
 
 // Fetch blog post
 $post_id = isset($_GET['id']) ? intval($_GET['id']) : 0;
-$sql = "SELECT blogs.ID, blogs.title, blogs.content, blogs.created_at, users.username 
+$sql = "SELECT blogs.ID, blogs.title, blogs.content, blogs.created_at, users.username, blogs.is_published
   FROM blogs 
   JOIN users ON blogs.author_id = users.ID 
   WHERE blogs.ID = :post_id AND (blogs.is_published = 1 OR blogs.author_id = :author_id)";
@@ -89,20 +89,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reaction'])) {
         <div class="card">
           <h2><?php echo decode_data_with_formatting($blog['title']); ?></h2>
           <h5>By <?php echo decode_data_with_formatting($blog['username']); ?> on
-            <?php echo decode_data_with_formatting($blog['created_at']); ?></h5>
+            <?php echo decode_data_with_formatting($blog['created_at']); ?>
+            <?php if (!$blog['is_published']): ?>
+              <span style="color: orange;">[DRAFT]</span>
+            <?php endif; ?>
+          </h5>
           <hr>
         </div>
         <?php $content = decode_data_with_formatting($blog['content']); ?>
         <div class="card">
           <?php echo $content; ?>
+          <hr>
+          <?php if (isset($_SESSION['id']) && $blog['username'] === $_SESSION['username']): ?>
+            <a href="./editor.php?id=<?php echo $blog['ID']; ?>" class="horizontal-button">Edit Post</a>
+          <?php endif; ?>
         </div>
-        
+
         <!-- Reactions card -->
         <div class="card">
           <h3>Reactions</h3>
           <form method="POST" class="reaction-container">
-            <button type="submit" class="reaction-button" name="reaction" value="like">Like (<?php echo $reactions[0]['count'] ?? 0; ?>)</button>
-            <button type="submit" class="reaction-button" name="reaction" value="dislike">Dislike (<?php echo $reactions[1]['count'] ?? 0; ?>)</button>
+            <button type="submit" class="reaction-button" name="reaction" value="like">Like
+              (<?php echo $reactions[0]['count'] ?? 0; ?>)</button>
+            <button type="submit" class="reaction-button" name="reaction" value="dislike">Dislike
+              (<?php echo $reactions[1]['count'] ?? 0; ?>)</button>
           </form>
         </div>
 
@@ -124,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reaction'])) {
 
           <?php if (isset($_SESSION['id'])): ?>
             <form method="POST">
-                <textarea class="horizontal-textarea" name="comment" placeholder="Write a comment..." required></textarea>
+              <textarea class="horizontal-textarea" name="comment" placeholder="Write a comment..." required></textarea>
               <button class="horizontal-button" type="submit">Submit</button>
             </form>
           <?php else: ?>

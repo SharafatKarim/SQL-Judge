@@ -46,14 +46,7 @@ if (!$current_lesson_exists) {
   <link rel="stylesheet" href="../styles/reader.css">
 </head>
 
-<script>
-  window.onload = function () {
-    var focusElem = document.getElementById('focus');
-    if (focusElem) {
-      focusElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  };
-</script>
+<script src="./get_focused.js"></script>
 
 <body>
   <?php require '../components/header.php'; ?>
