@@ -4,5 +4,7 @@
 
 ## To-DO
 
-- [x] DB trigger to automatically update total_contribution, total_submission and total_solved per user.
-- [x] Admin page implementation.
+- [ ] Admin page implementation.
+- [ ] DB trigger to automatically update total_contribution, total_submission and total_solved per user.
+- [ ] Friends list and add friends functionality.
+- [ ] Problemsets and contests.

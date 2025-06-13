@@ -23,9 +23,22 @@ $_SESSION["page"] = "problemsets";
     <!-- left column -->
     <div class="leftcolumn">
       <div class="card">
+        <h2>Welcome to the Problemssets!</h2>
+        <p>Feel free to submit a query...</p>
+
+        <div class="row2">
+          <a href="./creator.php" class="green-button">
+            Publish a query...
+          </a>
+        </div>
+        <hr>
+      </div>
+
+      <div class="card">
         <h2>No contests running!</h2>
         <p>Please check back tomorrow...</p>
       </div>
+
     </div>
 
     <!-- right column -->

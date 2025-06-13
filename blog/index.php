@@ -60,7 +60,7 @@ $blogs = $conn->query($sql);
                 <span style="color: orange;">[DRAFT]</span>
               <?php endif; ?>
             </h5>
-            <!-- TODO :: Add formatting, pagination and limit -->
+            <!-- TODO :: Add pagination and limit -->
             <p>
               <?php
               $content = decode_data_with_formatting($blog['content']);
