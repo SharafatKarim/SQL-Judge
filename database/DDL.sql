@@ -143,6 +143,7 @@ CREATE TABLE newsletters (
     subscribed_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+DROP TABLE IF EXISTS contests;
 CREATE TABLE contests (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(100) NOT NULL,
@@ -155,6 +156,7 @@ CREATE TABLE contests (
     FOREIGN KEY (created_by) REFERENCES users(ID)
 );
 
+DROP TABLE IF EXISTS contest_registrations;
 CREATE TABLE contest_registrations (
     user_id INT NOT NULL,
     contest_id INT NOT NULL,
@@ -164,6 +166,7 @@ CREATE TABLE contest_registrations (
     FOREIGN KEY (contest_id) REFERENCES contests(ID)
 );
 
+DROP TABLE IF EXISTS problems;
 CREATE TABLE problems (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     contest_id INT,
