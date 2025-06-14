@@ -203,16 +203,37 @@ CREATE TABLE submissions (
     FOREIGN KEY (problem_id) REFERENCES problems(ID)
 );
 
+-- Trigger to increment total_submissions by 1 when a new submission is added
+DELIMITER $$
+CREATE TRIGGER increment_total_submissions_after_insert
+AFTER INSERT ON submissions
+FOR EACH ROW
+BEGIN
+    UPDATE users
+    SET total_submissions = total_submissions + 1
+    WHERE ID = NEW.user_id;
+END$$
+DELIMITER ;
+
+DROP TABLE IF EXISTS user_scores;
 CREATE TABLE user_scores (
     user_id INT NOT NULL,
     contest_id INT NOT NULL,
     problem_id INT NOT NULL,
-    score INT DEFAULT 0,
-    best_submission_id INT,
-    attempts INT DEFAULT 0,
     PRIMARY KEY (user_id, contest_id, problem_id),
     FOREIGN KEY (user_id) REFERENCES users(ID),
     FOREIGN KEY (contest_id) REFERENCES contests(ID),
-    FOREIGN KEY (problem_id) REFERENCES problems(ID),
-    FOREIGN KEY (best_submission_id) REFERENCES submissions(ID)
+    FOREIGN KEY (problem_id) REFERENCES problems(ID)
 );
+
+-- Trigger to increment total_solved by 1 when a new user_scores entry is added
+DELIMITER $$
+CREATE TRIGGER increment_total_solved_after_user_score_insert
+AFTER INSERT ON user_scores
+FOR EACH ROW
+BEGIN
+    UPDATE users
+    SET total_solved = total_solved + 1
+    WHERE ID = NEW.user_id;
+END$$
+DELIMITER ;

@@ -1,6 +1,15 @@
 <?php
 session_start();
 $_SESSION["page"] = "problemsets";
+require '../lib/db.php';
+require '../lib/security.php';
+
+// Fetch all problems from previous contests
+$now = date('Y-m-d H:i:s');
+$sql = "SELECT problems.*, contests.title AS contest_title FROM problems JOIN contests ON problems.contest_id = contests.ID WHERE contests.end_time <= ? ORDER BY contests.end_time DESC, problems.ID ASC";
+$stmt = $conn->prepare($sql);
+$stmt->execute([$now]);
+$problems = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -23,11 +32,46 @@ $_SESSION["page"] = "problemsets";
     <!-- left column -->
     <div class="leftcolumn">
       <div class="card">
-        <h2>No contests running!</h2>
-        <p>Please check back tomorrow...</p>
+        <h2>Problems from Previous Contests</h2>
+        <?php if (count($problems) > 0): ?>
+          <ul>
+            <?php foreach ($problems as $problem): ?>
+            </ul>
+            <table style="width:100%; border-collapse: collapse; margin-top: 1em;">
+              <thead>
+                <tr>
+                  <th style="text-align:left; border-bottom: 1px solid #ccc; padding: 8px;">Title</th>
+                  <th style="text-align:left; border-bottom: 1px solid #ccc; padding: 8px;">Contest</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($problems as $problem): ?>
+                  <tr>
+                    <td>
+                      <a href="./problem.php?id=<?php echo $problem['ID']; ?>">
+                        <?php echo htmlspecialchars($problem['title']); ?>
+                      </a>
+                    </td>
+                    <td>
+                      <?php echo htmlspecialchars($problem['contest_title']); ?>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          <?php endforeach; ?>
+          </ul>
+        <?php else: ?>
+          <p>No problems from previous contests found.</p>
+        <?php endif; ?>
+      </div>
+
+      <div class="card">
+        <?php include '../components/newsletter.php' ?>
       </div>
 
     </div>
+
 
     <!-- right column -->
     <div class="rightcolumn">

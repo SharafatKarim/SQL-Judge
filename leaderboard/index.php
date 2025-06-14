@@ -154,6 +154,10 @@ if ($stmt3 = $conn->prepare($sql_total_contributions)) {
           ?>
         </table>
       </div>
+
+      <div class="card">
+        <?php include '../components/newsletter.php' ?>
+      </div>
     </div>
 
     <!-- right column -->
