@@ -237,3 +237,15 @@ BEGIN
     WHERE ID = NEW.user_id;
 END$$
 DELIMITER ;
+
+-- View to get the top 5 users based on total_solved
+CREATE VIEW top_rated_5 as
+SELECT username, first_name, last_name, total_solved 
+FROM users 
+ORDER BY total_solved DESC LIMIT 5;
+
+-- View to get the top 5 users based on total_contributions
+CREATE VIEW top_contributors_5 as
+SELECT username, first_name, last_name, total_contributions 
+FROM users 
+ORDER BY total_contributions DESC LIMIT 5;

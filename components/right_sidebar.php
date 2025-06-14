@@ -5,7 +5,7 @@
 include '../lib/db.php';
 // Fetch top rated users (by total_solved)
 $top_rated = [];
-$sql_top_rated = "SELECT username, first_name, last_name, total_solved FROM users ORDER BY total_solved DESC LIMIT 5";
+$sql_top_rated = "SELECT * FROM top_rated_5";
 if ($stmt = $conn->prepare($sql_top_rated)) {
   if ($stmt->execute()) {
     $top_rated = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -13,7 +13,7 @@ if ($stmt = $conn->prepare($sql_top_rated)) {
 }
 // Fetch top contributors (by total_contributions)
 $top_contributors = [];
-$sql_top_contributors = "SELECT username, first_name, last_name, total_contributions FROM users ORDER BY total_contributions DESC LIMIT 5";
+$sql_top_contributors = "SELECT * FROM top_contributors_5";
 if ($stmt2 = $conn->prepare($sql_top_contributors)) {
   if ($stmt2->execute()) {
     $top_contributors = $stmt2->fetchAll(PDO::FETCH_ASSOC);
