@@ -79,14 +79,18 @@ $problems->execute([$contest_id]);
             <h2>Problems</h2>
             <?php if ($problems->rowCount() > 0): ?>
                 <?php foreach ($problems as $problem): ?>
-                    <div class="card left-blue">
-                        <h3><?php echo htmlspecialchars($problem['title']); ?></h3>
+                    <div class="card left-green">
+                        <h3>
+                            <a href="./problem.php?id=<?php echo $problem['ID']; ?>">
+                                <?php echo htmlspecialchars($problem['title']); ?>
+                            </a>
+                        </h3>
                         <p><?php echo nl2br(htmlspecialchars($problem['description'])); ?></p>
                         <span>Difficulty: <?php echo htmlspecialchars($problem['difficulty']); ?></span>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <div class="card left-blue">No problems added yet.</div>
+                <div class="card left-red">No problems added yet.</div>
             <?php endif; ?>
         </div>
     </div>

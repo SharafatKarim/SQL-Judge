@@ -40,7 +40,7 @@ $_SESSION["page"] = "contests";
         require '../lib/db.php';
         require '../lib/security.php';
         $user_id = isset($_SESSION['id']) ? intval($_SESSION['id']) : 0;
-        
+
         // Fetch and group contests
         $now = date('Y-m-d H:i:s');
         $upcoming = $conn->query("SELECT contests.*, users.username FROM contests JOIN users ON contests.created_by = users.ID WHERE contests.start_time > NOW() ORDER BY contests.start_time ASC");
@@ -63,6 +63,7 @@ $_SESSION["page"] = "contests";
               <p><?php echo nl2br(htmlspecialchars($contest['description'])); ?></p>
               <div class="row2">
                 <a href="./editor.php?id=<?php echo $contest['ID']; ?>" class="green-button">Edit</a>
+                <a href="./register.php?id=<?php echo $contest['ID']; ?>" class="green-button">Register</a>
                 <a href="./dashboard.php?id=<?php echo $contest['ID']; ?>" class="green-button">Enter</a>
               </div>
               <hr>
@@ -90,6 +91,7 @@ $_SESSION["page"] = "contests";
               <p><?php echo nl2br(htmlspecialchars($contest['description'])); ?></p>
               <div class="row2">
                 <a href="./editor.php?id=<?php echo $contest['ID']; ?>" class="green-button">Edit</a>
+                <a href="./register.php?id=<?php echo $contest['ID']; ?>" class="green-button">Register</a>
                 <a href="./dashboard.php?id=<?php echo $contest['ID']; ?>" class="green-button">Enter</a>
               </div>
               <hr>
@@ -117,6 +119,7 @@ $_SESSION["page"] = "contests";
               <p><?php echo nl2br(htmlspecialchars($contest['description'])); ?></p>
               <div class="row2">
                 <a href="./editor.php?id=<?php echo $contest['ID']; ?>" class="green-button">Edit</a>
+                <a href="./register.php?id=<?php echo $contest['ID']; ?>" class="green-button">Register</a>
                 <a href="./dashboard.php?id=<?php echo $contest['ID']; ?>" class="green-button">Enter</a>
               </div>
               <hr>

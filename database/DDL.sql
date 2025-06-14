@@ -179,21 +179,22 @@ CREATE TABLE problems (
     FOREIGN KEY (contest_id) REFERENCES contests(ID)
 );
 
+DROP TABLE IF EXISTS test_cases;
 CREATE TABLE test_cases (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     problem_id INT NOT NULL,
     input TEXT,
-    expected_output TEXT NOT NULL,
+    expected_output TEXT,
     is_hidden BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (problem_id) REFERENCES problems(ID)
 );
 
+DROP TABLE IF EXISTS submissions;
 CREATE TABLE submissions (
     ID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     user_id INT NOT NULL,
     problem_id INT NOT NULL,
     code TEXT NOT NULL,
-    language ENUM('sql', 'python', 'java') DEFAULT 'sql',
     status ENUM('pending', 'running', 'accepted', 'wrong_answer', 'time_limit_exceeded', 'runtime_error') DEFAULT 'pending',
     execution_time FLOAT,
     memory_used INT,

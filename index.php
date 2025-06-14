@@ -36,8 +36,14 @@ $blogs = $conn->query($sql);
         <h2>NEWS & EVENTS</h2>
         <hr>
 
+        <h3>June update</h3>
+        <h5>Major changes, Fri 13, June 2025</h5>
+        <ul>
+          <li>Contest & Problemsets - basic mechanism.</li>
+        </ul>
+
         <h3>May update</h3>
-        <h5>Major changes, Mon 6, April 2025</h5>
+        <h5>Major changes, Sat 31, May 2025</h5>
         <ul>
           <li>Learn, cheatsheet, newsletter & more...</li>
           <li>Blogs editor and Leaderboard integration.</li>
@@ -47,6 +53,7 @@ $blogs = $conn->query($sql);
           <li>Blogs & Thoughts section added.</li>
           <li>Leaderboard implemented.</li>
         </ul>
+        
         <h3>April update</h3>
         <h5>Major changes, Sun 06, April 2025</h5>
         <ul>
@@ -54,6 +61,7 @@ $blogs = $conn->query($sql);
           <li>Login and Sign up system implemented with php.</li>
           <li>Submit form to report errors implemented with php.</li>
         </ul>
+        
         <h3>March update</h3>
         <h5>Major changes, Sun 06, April 2025</h5>
         <ul>

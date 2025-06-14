@@ -34,7 +34,7 @@
   <h2>Redirecting you to the index page...</h2>
 
   <h3>
-    Please make sure you are logged in <br>
+    Please make sure you are logged in and registered if a participant, <br>
     and have the necessary permissions to access this page.
   </h3>
 </body>

@@ -1,6 +1,7 @@
 <?php
 session_start();
 $_SESSION["page"] = "contests";
+
 require "../lib/db.php";
 require "../lib/security.php";
 
