@@ -34,9 +34,6 @@ $problems = $stmt->fetchAll();
       <div class="card">
         <h2>Problems from Previous Contests</h2>
         <?php if (count($problems) > 0): ?>
-          <ul>
-            <?php foreach ($problems as $problem): ?>
-            </ul>
             <table style="width:100%; border-collapse: collapse; margin-top: 1em;">
               <thead>
                 <tr>
@@ -59,7 +56,6 @@ $problems = $stmt->fetchAll();
                 <?php endforeach; ?>
               </tbody>
             </table>
-          <?php endforeach; ?>
           </ul>
         <?php else: ?>
           <p>No problems from previous contests found.</p>
